@@ -36,8 +36,8 @@
        document.write("<h2>,(콤마)로 구분해서 동시에 변수 여러개 선언하기</h2>");
        var num1=10, num2, str1="쟈스", str2;
        //undefined+숫자 = NaN(Not a Number)도 하나의 값이고 number타입이다
-       document.write(num1+num2+"<br/>");
-       document.write(typeof(num1+num2)+"<br/>");
+       document.write('<br/>num1+num2의 자료형:'+typeof(num1+num2)+',num1+num2에 저장된 값:'+(num1+num2)+"<br/>");
+
         //NaN을 판단하는 함수 : isNaN()
         if(isNaN=(num1+num2))
             document.write('num1+num2는 NaN이다.<br/>');
