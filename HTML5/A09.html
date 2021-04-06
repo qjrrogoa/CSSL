@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>A09.html</title>
+</head>
+<body>
+    <!--
+        a태그 : Hyper Link기능을 제공하는 태그
+        속성 :
+            href : 이동할 페이지 경로 혹은 url주소
+            targer : 이동할 페이지를 보여줄 대상 지정
+                _self(기본값) : 자기자신의 브라우저에 이동할 페이지 표시
+                _top
+                _parent
+                _blank(새창(탭)으로 페이지가 열림)
+            inline element
+
+            * 중요
+            a태그를 이용해 이동할 페이지로 값을 전달할 수 있다.
+            쿼리스트링을 이용해서 값을 전달
+
+            쿼리스트리링란?
+
+            - 페이지명 다음에 ?로 연결한 문자열
+                ?이름 = 값의 쌍으로 전달
+                여러개 전달시에는 &로 연결
+            
+            예]<a href="aTag.html?name=hong&age=10&id=kim">클릭</a>
+
+            a태그로 값을 전달하면 get방식
+            
+            -링크 거는 방법
+            절대주소 : 링크거는 페이지의 위치가 바뀌더라도
+                    주소가 절대로 변하지 않음
+                    https://~로 링크를 걸거나
+                    /(홈 디렉토리의 루트를 의미)로 시작하거나
+                    예]http://www.naver.com까지를 의미
+
+            상대주소 : 링크거는 페이지의 위치에 따라 주소가 상대적으로 변함
+
+                    . : 현재 디렉토리를 의미
+                    .. : 상위 디렉토리
+
+                    ./ 은 생략 가능
+../../SRC/B.html
+../a.html
+../SRC2/SRC3/C.html
+../../../SRC2/SRC3/B.html
+../../SRC4/SRC5/SRC6/D.html
+SRC2/SRC3/B.html
+../../../SRC/C.html
+    -->
+    <div>
+        <h2>A 태그</h2>
+        
+        <h3>_self(현재 창에 이동할 페이지의 내요을 표시:default</h3>
+        <a href="ULOL08.html" >target속성 미 지정(상대경로)-ULOL08.html</a><br/>
+        <a href="http://127.0.0.1:5500/HTML5/ULOL08.html">target속성 미 지정(절대경로 = http로 시작)-ULOL08.html</a><br/>
+        <a href="/HTML5/ULOL08.html">target속성 미 지정(절대경로 -/로 시작)-ULOL08.html</a><br/>
+        
+        <h3>_blank(현재 창이 아닌 새로운창(탭에) 이동할 페이지의 내용 표시</h3>
+        <a href="P06.html" target="_blank">target속성 지정(상대경로)-P06.html</a><br/>
+        
+        <h3>쿼리 스트링으로 데이터 전달</h3>
+        <a href="P06.html?USER=KIM&NAME=홍길동&AGE=20">GET방식으로 데이터 전송</a>
+
+     </div>
+</body>
+</html>

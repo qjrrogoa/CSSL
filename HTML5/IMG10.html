@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>IMG10.html</title>
+</head>
+<body>
+    <!--
+        img태그 : 이미지를 표시할 때 사용하는 태그
+        src : 해당 이미지의 경로(절대경로 혹은 상대경로)
+        alt : 대체 텍스트(이미지가 표시 안될 때 텍스트 표시됨)
+        width : 이미지의 가로폭 지정
+        height : 이미지의 세로폭 지정
+
+        - inline element
+        - 종료태그가 없다
+        * width와 height 미지정시 이미지 원본 크기 그대로 표시됨.
+            a태그를 이요해서 이미지에 링크걸때는 반드시
+            border값을 0으로
+            안그러면 테두리가 자동적으로 생김
+    -->
+    <h2>img태그</h2>
+    <h3>이미지 원본 크기대로 표시</h3>
+    <img src="../Images/Java_logo.png" alt="자바로고 이미지"/><br/>
+    <img src="../Images/Java_logo.png1" alt="자바로고 이미지"/>
+    
+    <h3>이미지 원본 크기 조정</h3>
+    <img src="../Images/Java_logo.png" width="100",height="50",alt="자바로고 이미지"/><br/>
+    <img src="../Images/Java_logo.png" style="width:100px;height:100px" ,alt="자바로고 이미지"/>
+
+    <h3>이미지에 링크 걸기</h3>
+    <a href="https://www.naver.com"><img src="../Images/Java_logo.png" style="width:100px;height:100px" ,alt="자바로고 이미지"/>
+    </a>
+</body>
+</html>
