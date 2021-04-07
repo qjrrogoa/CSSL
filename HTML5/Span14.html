@@ -3,10 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>Span14.html</title>
+    <style>
+        .monday{
+            font-size: .8em;
+            color: gray;   
+        }
+        .html5{
+            font-size: 1.8em;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        var toggle = false
+        function toggleText(){
+            var span = document.getElementById("text");
+            if(!toggle) //true
+                span.innerHTML = "제이에스피";
+            else 
+                span.innerHTML = "JSP";
+            toggle = !toggle;
+        }
+
+        var setImage = function(){
+            var span = document.getElementById("image");
+            span.innerHTML="<img src='../Images/button.png' alt = '이미지 버튼'/>";
+        }
+
+        function setGugudan(){
+            var span = document.getElementById("gugudan");
+            var htmlString ="<table style='text-aling:center; border-spacing:2px; background-color:green; width:700px; height:400px'>";
+                for(var i=1; i<=9;i++){
+                    htmlString+="<tr style = 'background-color:white;'>";
+                    for(var j=2; j<=9;j++){
+                        htmlString+="<td>"+j+" * "+i+ "=" +i*j+"</td>";
+                    }
+                    htmlString+="</tr>";
+                }
+                htmlString+="</table>";
+                span.innerHTML=htmlString;
+        }
+
+    </script>
 </head>
 <body>
     기본 텍스트
     <h2>h2태그</h2>
     <span>기본텍스트</span>
+    <!--
+        일반적인 HTML태그와 달리 MARKUP기능은 없다.
+        주로 자바스크립트와 CSS에서 활용하기 위한 태그
+    -->
+    <div>
+        <h2>&lt;span&gt;태그</h2>
+        <h3>자바스크립트에서 활용</h3>
+        오늘의 첫 수업은 <span id="text">JSP</span> 입니다.<br/>
+        여기에 <span id="image">이미지</span> 표시하기<br/>
+        아래에 구구단 표시하기<br/>
+        <span id = "gugudan"></span>
+        <fieldset>
+            <legend>버튼들</legend>
+            <button onclick="toggleText()">텍스트 변경</button>
+            <button onclick="setImage()">이미지 교체</button>
+            <button onclick="setGugudan()">구구단 표시</button>
+        </fieldset>
+        <h3>CSS에서 활용</h3>
+        오늘은 <span class="monday">월요일</span> 입니다<br/>
+        <span class="html5">HTML5</span> 수업입니다.<br/>
+    </div>
 </body>
 </html>
