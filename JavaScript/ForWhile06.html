@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ForWhile06.html</title>
+    <script>
+        /*
+        자바 : for문 안에서 선언된 변수는 for문이 끝나면 소멸된다.
+
+        자스 : script태그 안에서 선언된 변수는 해당 페이지 모든 영역에서 사용가능하다.
+              for(var 변수 = 초기값;반복조건;증감식){
+                  반복조건이 참일때 수행 할 명령문들
+              }
+        */
+       for(var i=0;i<5;i++){
+           var gVar ="for문 안에서 선언된 변수";
+           document.write("i="+i+"<br/>");
+       }
+       document.write("for문이 끝난 후 i : " +i+", gVar : "+ gVar);
+       document.write("<h2>for문으로 출력</h2>");
+       for(var i=0;i<5;i++){
+        for(var j=0;j<5;j++){
+            if(i==j)
+                document.write("1 ");
+            else 
+                document.write("0 ");
+            }
+            document.write("<br/>");
+       }
+       document.write("<h2>while문으로 출력</h2>");
+       var table="<table style='text-align:center;border-spacing:2px;background-color:red;width:200px'>";
+       var i=0
+       var j=0
+       while(i<5){
+           table+="<tr style='background-color:white'>";
+            while(j<5){
+                if(i==j)  
+                    table+="<td>1</td>"
+                else 
+                    table+="<td>0</td>"   
+                j++;
+            }
+            table+="</tr>";
+            i++;
+            j=0;
+       }
+        table+="</table>"
+        document.write(table);
+       //문]table를 사용하여 구구단을 출력하여라.
+       document.write("<h2>구구단 출력</h2>");
+       var table="<table style='text-align:center;border-spacing:2px;background-color:red;width:200px'>";
+       for(var i=1;i<=9;i++){
+        table+="<tr style='background-color:white'>";
+            for(var j=2;j<=9;j++){
+                table+="<td>" + j + "*" + i + "=" + i*j+ "</td>";
+            }
+        table+="</tr>";
+       }
+        table+="</table>"
+        document.write(table);
+
+    </script>
+</head>
+<body>
+    <script>
+        document.write("<br/>body태그 안에서 사용 : i= " +i+ ", gVar = "+gVar);
+    </script>
+</body>
+</html>

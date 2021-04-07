@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch05.html</title>
+    <script>
+        /*
+        자바 : 식이 정수값이 나올 수 있는 정수식이거나 문자열이어야 한다.
+
+        쟈스 : 모든 값이 나올 수 있는 모든 식이 가능하다
+            즉 정수뿐만 아니라 실수 그리고 논리값(true/false)
+            문자열도 가능하다.
+        */
+       const PI = 3.000014;
+       switch(PI){
+            case 3.000000014:
+            case 3.00000014:
+            case 3.0000014:
+            case 3.000014:
+            case 3.014:
+            case 3.14: 
+                document.write("PI는 3.14다<br/>");
+                break;
+            default :
+                document.write("PI는 3.14가 아니다.<br/>");
+       }
+       switch(10 % 2==0){
+           case true:
+               document.write("true다. <br/>");
+               break;
+            case false:
+                document.write("false다. <br/>");
+               break;
+       }
+       switch("자바"){
+           case "자스": 
+                document.write("쟈스다<br/>");
+                break;
+            case "자바":
+                document.write("자바다<br/>");
+                brerak;
+            case "자브":
+                document.write("자브다<br/>");
+                brerak;
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
