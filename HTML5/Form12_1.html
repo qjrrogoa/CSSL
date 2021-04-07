@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Form12_1.html</title>
+</head>
+<body>
+    <!--
+        form태그 : 사용자가 입력한 값 혹은 선택한 값을 서버로 전송할 때 사용하는 태그
+        
+        주요 속성:
+        action: 사용자가 입력한 값을 전송할 서버상에 있는 페이지 경로 지정
+                (action생략시 기본값은 자신의 페이지)
+        method: get/post(method 생략시 기본값은 get)
+                데이터 전송방식을 의미
+
+            get : 데이터 노출 됨, http 요청 헤더에 포함되서 전송됨, 최대 4KB
+            post : 데이터 노출 안됨, http 요청 바디에 내용이 포함되서 전송됨, 무한대
+
+        *get방식에서 URL을 통해 데이터 전송시 FORM태그 하위요소의 NAME속성에 지정한 이름을 통해서 전송된다.
+            즉 이름 = 값(사용자가 입력하거나 선택한 값)의 쌍으로 전송
+            여러개 정송시에는 이름1=값1&이름2=값2&.... 즉 &로 연결되어서 전송됨
+
+        targer : 이 속성은 a태그의 target속성과 같은 기능
+
+        enctype : URL인코딩 박싱 지정
+                application/x-www-form-urlencoded(디폴트 값)
+                multipart/form-data(파일 업로드)
+        
+    -->
+    <div>
+        <h2>form태그로 데이터 전송하기</h2>
+        <h3>GET방식으로 요청</h3>
+        <form action="https://www.naver.com">
+            아이디 : <input type = "text" name = "user"/>
+            비밀번호 : <input type = "password" name = "pass"/>
+            <input type="submit" value="로그인"/>
+        </form>
+
+        <h3>POST방식으로 요청</h3>
+        <form action="https://www.naver.com" method="POST">
+            아이디 : <input type = "text" name = "user"/>
+            비밀번호 : <input type = "password" name = "pass"/>
+            <input type="submit" value="로그인"/>
+        </form>
+       
+        <h3>action 및 method 속성 생략(GET방식으로 현재 페이지 다시 요청)</h3> 
+        <form>
+            아이디 : <input type = "text" name = "user"/>
+            비밀번호 : <input type = "password" name = "pass"/>
+            전화번호 : <input type = "tel" name = "tel"/>
+            이메일 : <input type = "email" name = "email"/>
+            <input type="submit" value="로그인"/>
+        </form>
+        
+        <h3>a 태그로 데이터 전송 (GET 방식)</h3>
+        <a href="https://www.naver.com?user=KIM&pass=1234&tel=010&email=qkreoals%40naver.com">네이버</a>
+    </div>
+</body>
+</html>
