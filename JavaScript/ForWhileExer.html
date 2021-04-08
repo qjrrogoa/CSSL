@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    document.write("<table style='text-align:center;border-spacing:2px;background-color:red;width:200px'>");
+    for(var i=0;i<5;i++){
+        document.write("<tr>");
+            for(var j=0;j<5;j++){
+                document.write("<td>");
+                    if(i==j)
+                        document.write("1 ");
+                    else 
+                        document.write("0 ");
+                document.write("</td>");
+            }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+</script>
+</body>
+</html>
