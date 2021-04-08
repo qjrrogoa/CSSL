@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Function08_1.html</title>
+    <script>
+        /*
+    [함수정의]
+
+        방법1] 함수 선언문(유명함수)
+        function 함수명([매개변수1,매개변수2,...]){ //var사용불가, 즉 매개변수 정의시 변수명만
+
+            함수가 할 일 구현;
+
+            [return 변수혹은 값;]
+            *return 이후의 명령은 실행이 안됨
+
+        }
+
+        방법2] 함수 표현식(익명함수)
+        var 변수명 = function([매개변수1,매개변수2,...]){
+            
+            함수가 할 일 구현;
+            [return 변수 혹은 값;]
+        }
+
+        방법3] 즉시 실행함수    
+        (function [함수명]([매개변수1,매개변수2,...])){ //var사용불가, 즉 매개변수 정의시 변수명만
+
+            함수가 할 일 구현;
+
+            [return 변수혹은 값;]
+            *return 이후의 명령은 실행이 안됨
+
+        })([매개변수1,매개변수2,...])
+
+        //함수 호출
+        - 함수 정의한 원형 그대로 호출
+        함수명([매개변수1, 매개변수2,...]);
+
+        함수안에서 선언된 변수는 함수호출이 끝나면 메모리에서 사라진다.
+        지역변수
+    */
+   //함수 형식 1]
+   //함수 정의- 함수 선언문
+   function noParamNoreturn(){
+       document.write("===============Menu==============<br/>");
+       document.write("1. 계속, 2. 나가기<br/>");
+       document.write("=================================<br/>");
+   }
+    document.write("noParamNoreturn의 자료형:"+typeof noParamNoreturn+"<br/>");
+    document.write(noParamNoreturn+"<br/>");
+    //함수호출
+    noParamNoreturn();
+
+    //함수 형식 2]
+    //함수 정의 - 함수 표현식
+    /*
+    함수의 시작 주소를 왼쪽의 변수명에 저장
+    변수명을 마치 함수명처럼 사용가능
+    */
+    var yesParamNoReturn = function(start,end){
+        var total=0;//지역변수
+        for(var i=start; i<=end;i++)
+            total+=i;
+        document.write(start+"부터"+end+"까지 누적합:"+total+"<br/>");
+    };
+    document.write("yesParamNoReturn의 자료형" + typeof yesParamNoReturn + "<br/>");
+    document.write(yesParamNoReturn+"<br/>");
+    //함수 호출
+    yesParamNoReturn(1,10);
+
+    /*
+    전역변수 : script태그안에 선언된 변수로 해당 페이지 어디에서나 사용 가능
+    지역변수 : 함수안에 선언된 변수(매개변수 포함).함수밖에서 사용시 에러
+    */
+
+    //함수 형식 3]
+    var noParamYesReturn = function(){
+        var name = prompt("이름 입력?");
+        var age = prompt("나이 입력?");
+        return "이름:" +name+", 나이:"+age; 
+        document.write("return문 이후 출력문")
+    };
+    //함수 호출
+   // document.write(noParamYesReturn())
+
+    //함수 형식4]
+    function yesParamYesReturn(num1,num2){
+        return num1 >= num2 ? num1 : num2;
+    }
+    document.write("<br/>최대값:"+yesParamYesReturn(10,20)+"<br/>");
+
+    //즉시 실행함수
+    var max=(function(num1,num2){return num1 >= num2?num1:num2;})(1,20)
+    document.write(typeof max+"<br/>")
+    document.write("최대 값: "+max()+"<br/>")
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

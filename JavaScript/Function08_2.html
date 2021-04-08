@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Function08_2.html</title>
+    <script>
+        var param=100,args=1;
+        console.log(window.param);
+        function callByValue(param,args){//매개변수 parma,args는 지역변수
+            var temp = param;
+            param = args;
+            args = temp;
+            console.log("callByValue함수 안 : param : %s, args : %s",param,args);
+        }
+        //함수 호출
+        callByValue(param,args);
+        console.log("callByValue함수 밖 : param : %s, args : %s",param,args)
+
+
+        //CallByReference]-참조에 의한 호출,값이 아닌 객체의 주소 전ㄷ라
+        var array=[100,1];
+        console.log(typeof array);
+        var callByRef = function(arr){
+            var temp = arr[0];
+            arr[0] = arr[1];
+            arr[1] = temp;
+            console.log("callByRef함수 안 : arr[0] : %s, arr[1] : %s",arr[0],arr[1]);
+        }
+        //함수 호출
+        callByRef(array);
+        console.log("callByRef함수 밖 : array[0] : %s, array[1] : %s",array[0],array[1]);
+       
+        //지역변수와 전역변수 충돌시 지역변수가 우선
+        var mVar = 100;//젼역변수
+        function conflict(mVar){//매개변수는 지역변수
+            console.log(this);//window객체
+            //mVar = mVar*2; 
+            this.mVar = mVar*2;
+            console.log("함수 안 mVar:",mVar);
+        }
+        window.conflict(mVar);
+        console.log("함수 밖 mVar:",mVar);
+        
+        var member = [];
+        function setMember(member){
+            for(var i=0;i<2;i++){
+                member.push(prompt(i+1+"번째 이름 입력"));
+                member.push(prompt(i+1+"번째 나이 입력"));
+                member.push(prompt(i+1+"번째 주소 입력"));
+            }
+        }////
+        // 함수 호출]
+        setMember(member);
+        member.forEach(function(e){
+            console.log(e);
+        });
+        /*
+        문1] 베열을 매개변수로 입력받아 배열을 크기순(큰 값부터)으로 재 정렬하는 함수를 정의해라 
+        그리고 호출하여 그 결과를 출력하여라.
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

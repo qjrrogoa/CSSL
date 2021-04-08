@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ObjectMake08_3</title>
+    <script>
+        /*
+        객체(object) - 연관된 속성(변수)나 행동(함수)를 모아놓은 것
+        자스에서 객체는 만드는 법]
+        
+        1. 중괄호 사용(Literal객체)
+            var 객체명 = {};//
+            속성 추가시에는 객체명.속성명=값
+            함수 추가시에는 객체명.함수명 = function(){}
+        2. 생성자 함수 사용
+            function 생성자함수명(){
+                this를 사용해서 속성 설정
+            }
+            -보통 일반함수와 구분하기위해 함수명을 대문자로 시작
+            -return문을 안쓴다.
+            -생성자 함수에는 주로 속성만 정의한다
+            var 객체명 = new 생성자함수명();
+            -함수는 객체명.prototype.함수명=function(){}로
+             별도로 정의한다.
+        */
+       var brace = {}; //new Object();와 같다
+       console.log("brace의 자료형 : %s, brace : %s",typeof brace, brace);
+       //속성 추가]
+       brace.naming="가길동";
+       brace.age=20;
+       console.log(brace);
+       //속성 출력
+       console.log(brace.naming);
+       console.log(brace.age);
+       //함수 출력
+       brace.print = function(){
+           console.log("-----this타입 및 값-----")
+           console.log(typeof this)
+           console.log(this);
+           console.log(this===window)
+           console.log("이름 : %s, 나이 : %s",this.naming,this.age)
+       };
+       brace.print();
+       //인자가 있는 함수
+       brace.friend = function(naming,age){
+            console.log("%s의 친구 이름은 %s이고 나이는 %s살이다.",this.naming,naming,age)
+       };
+       //호출]
+       brace.friend("철수",20);
+       console.log("%s",brace);
+       
+       //JSON.stringify(json객체):json형태의 문자열로 변환 - 함수는 제외됨
+       var jsonToString = JSON.stringify(brace);
+       console.log("-----jsonToString의 타입 및 값------");
+       console.log(typeof jsonToString);
+       console.log(jsonToString); // "{키:값.,...}" 형태의 문자열
+       
+       //키값은 '나 "로 감싸지 않아도 된다.
+       //단 값은 반드시 감싸야한다.(숫자는 제외)
+       var brace2={
+           num1:10,
+           "num2":'20',
+           "add":function(){return this.num1+parseInt(this.num2);},
+            minus:function(){return this.num1-parseInt(this.num2);}
+        };
+        console.log("-----속성 접근------");
+        console.log(brace2.num1);
+        console.log(brace2.num2);
+        console.log("-----함수 호출------");
+        console.log(brace2.add());
+        console.log(brace2.minus());
+
+ 
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
