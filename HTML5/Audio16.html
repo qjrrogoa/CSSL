@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Audio16.html</title>
+</head>
+<body>
+    <h2>기본 audio(src속성만 사용)태그</h2>
+    <audio src="Media/audio.mp3" controls>
+        오디오 태그를  지원하지 않는 브라우저 입니다.<br/>
+        여기를<a href="Media/audio.mp3">클릭</a>하세요
+    </audio>
+    
+    <h2>audio 하위태그인&it;source</h2>
+    <audio controls loop><!--loop속성 무한 재생-->
+        <!-- 아래 중 지원하는 미디어만 재생됨. -->
+        <source src="Media/audio.ogg" type="audio/ogg"/>
+        <source src="Media/audio.mp3" type="audio/mp3"/>
+    </audio>
+    
+    <h2>커스텀 오디오</h2>
+    <div>
+        <progress value="0" id="progress"></progress>
+    </div>
+    <div>
+        <button onclick="play()">PLAY</button>
+        <button onclick="pause()">PAUSE</button>
+        <button onclick="stop()">STOP</button>
+        &nbsp;&nbsp:<span id="current"></span> / <span id="total"></span>
+    </div>
+    <script>
+       //Audio객체 생성]
+       var audio = new Audio("Media/audio.mp3");
+       console.log("자료형:%s, audio:%s",typeof audio,audio);
+
+       //span 객체 얻기]
+       var currentSpan = document.getElementById("current");
+       var totalSpan = document.getElementById("total");
+
+       //progress 객체 얻기]
+       var progress = document.getElementById("progress");
+
+       //Audio 객체에 timeupdate이벤트 처리를 위한 리스너 부탁
+       //addEventLister()함수 사용
+       audio.addEventListener("timeupdate",function(){
+            //오디오의 총 재생시간 얻고 설정]
+            totalSpan.innerHTML = audio.duration;
+            //오디오의 현재 재생시간 얻고 텍스트 설정]
+            currentSpan.innerHTML = audio.currentTime;
+            //타임 업데이트에 따른 프로그레스의 진행정도 표시
+            //최대값(max 속성) 설정
+            progress.max = audio.duration;
+            //진행정도 표시
+            progress.value = audio.currentTime;
+       });
+       var play = function(){
+           audio.play();
+       };
+       var pause = function(){
+           audio.pause();
+       };
+       var stop = function(){
+           //stop()함수 지원안함
+           //아래처럼 stop효과 기능 구현
+            if(audio.played){//재생중이면
+                audio.currentTime=0;
+                audio.pause();
+            }
+       };
+    </script>
+</body>
+</html>

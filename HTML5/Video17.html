@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Video17.html</title>
+</head>
+<body>
+    <h2>기본 비디오 태그</h2>
+    <video src="Media/video.mp4" controls width="200" height="200">
+        video 태그를 지원하지 않는 브라우저 입니다.<br/>
+        여기를 <a href = "Media/video.mp4"> 클릭</a>하세요.
+    </video>
+
+    <h2>source하위 태그 사용</h2>
+    <video controls width="200" height="200" loop>
+        <source src="Media/video.3gp" type="video/3gpp"/>
+        <source src="Media/video.mp4" type="video/mp4"/>
+    </video>
+
+    <h2>커스텀 비디오</h2>
+    <div>
+        <video width="300" height="300" id="video" src="Media/video.mp4" hidden></video>
+        <div>
+            <progress value="0" id="progress"></progress>
+        </div>
+        <div>
+            <button onclick="play()">PLAY</button>
+            <button onclick="pause()">PAUSE</button>
+            <button onclick="stop()">STOP</button>
+            <button onclick="loop()">반복재생</button>
+
+            &nbsp;&nbsp:<span id="current"></span> / <span id="total"></span>
+        </div>
+    <script>
+        //Video 객체 얻기
+        var video=document.getElementById("video");
+
+        //span 객체 얻기]
+       var currentSpan = document.getElementById("current");
+       var totalSpan = document.getElementById("total");
+
+       //progress 객체 얻기]
+       var progress = document.getElementById("progress");
+
+       //Video객체에 timeupdate이벤트 처리를 위한 리스너 부착
+       //ontimeupdate속성 사용
+       video.ontimeupdate = function(){
+        totalSpan.innerHTML = video.duration;
+            //오디오의 현재 재생시간 얻고 텍스트 설정]
+            currentSpan.innerHTML = video.currentTime;
+            //타임 업데이트에 따른 프로그레스의 진행정도 표시
+            //최대값(max 속성) 설정
+            progress.max = video.duration;
+            //진행정도 표시
+            progress.value = video.currentTime;
+       };
+       var play = function(){
+           video.hidden = ''; //비디오 보이게
+           video.play();
+       };
+       var pause = function(){
+           video.pause();
+       };
+       var stop = function(){
+           //stop()함수 지원안함
+           //아래처럼 stop효과 기능 구현
+            if(video.played){//재생중이면
+                video.currentTime=0;
+                video.pause();
+            }
+       };
+       var toggle = false;
+       function loop(){
+           if(!toggle) video.loop=true;
+           else video.loop=false;
+           toggle = !toggle;
+       }
+    </script>
+</body>
+</html>
