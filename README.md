@@ -36,3 +36,8 @@ alert("")
 key(i)
 
 localstorage.clear()
+
+var 변수 = []; // 배열
+
+var 변수 = {}; // 맵
+ 
