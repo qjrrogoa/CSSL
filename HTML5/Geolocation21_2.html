@@ -2,26 +2,38 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Geolocation21_1.html</title>
+    <title>Geolocation21_2.html</title>
 </head>
 <body>
-    <fieldset>
+    <fieldset style="width: 50%;">
         <legend>Geolocation API-현재 위치 갱신하기</legend>
         <button onclick = "start()">위치 추적 시작</button>
-        <button onclick = "stop()">위치 추적 정지</button>
+        <button onclick = "stop()">위치 추적 정지</button><br/>
         <span id="display" style="color: red;font-size: 1.5em; font-weight: bold;"></span>
     </fieldset>
     <script>
         console.log(window.navigator.geolocation);
         //DOM(Document Object Model)객체 얻기]
         var span = document.getElementById("display");
-        if(navigator.geolocation){//브라우저에 Geolocation 지원 여부 판단
-            span.innerHTML = "Geolocation API를 지원하는 브라우저";
-            //PositionOptions객체 설정용]
-            var options = {timeout:3000,maxinumAge:5000};
-            //현재 위치 정보 딱 한번만 얻기
-            navigator.geolocation.getCurrentPosition(successCallback);           
+        span.innerHTML = "Geolocation API를 지원하는 브라우저";
+        var watcher;
+
+        function start(){
+            if(navigator.geolocation){//브라우저에 Geolocation 지원 여부 판단
+                //PositionOptions객체 설정용]
+                var options = {timeout:3000,maxinumAge:5000};
+                //현재 위치 정보 딱 한번만 얻기
+                watcher=navigator.geolocation.watchPosition(successCallback,errorCallback,options);           
+                console.log(watcher);
+            }   
+        }//////////start
+
+        function stop(){
+            //위치정보 받기 중지
+            navigator.geolocation.clearWatch(watcher);
+            span.innerHTML = "위치 추적 종료";
         }
+        
         
         function successCallback(position){
             console.log("position의 자료형 : ",typeof position);

@@ -19,9 +19,9 @@
             //PositionOptions객체 설정용]
             var options = {timeout:3000,maxinumAge:5000};
             //현재 위치 정보 딱 한번만 얻기
-            navigator.geolocation.getCurrentPosition(successCallback);           
+            navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);           
         }
-        
+
         function successCallback(position){
             console.log("position의 자료형 : ",typeof position);
             console.log(position);
