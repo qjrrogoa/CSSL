@@ -8,43 +8,38 @@
     <div>
         <h2>canvas태그</h2>
         <!-- 캔바스의 가로폭 세로폭은 반드시 속성으로 설정-->
-        <canvas id="canvas" style="background-color:yellow; width: 200px; height: 200px;"></canvas>
+        <canvas id="canvas"  width="200" height="200" style="background-color:yellow;"></canvas>
         <script>
-             var canvas = document.getElementById("canvas");
-             var ctx=canvas.getContext("2d");
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "25 굴림체";
+            ctx.fillStyle = "blue"; //채우기 색상 설정
 
-            //  ctx.beginPath();
-            //  ctx.moveTo(0,0);
-            //  ctx.lineTo(50,50);
-            //  ctx.stroke();
-            //  ctx.closePath();
+            //기준선 보이기]
+            ctx.strokeStyle="red";//선 색상 설정
+            ctx.moveTo(50,20);
+            ctx.lineTo(50,180);
+            ctx.stroke(); // 선긋기
+            //그림자 표시를 위한 설정]
+            ctx.shadowColor = "rgba(0,255,0,0.8)";
+            ctx.shadowOffsetX=5;
+            ctx.shadowOffsetY=5;
+            ctx.shadowBlur = 5; // 최대값 100
+            ctx.textAlign="start";
+            ctx.fillText("HTML5_START",50,50);
 
-             ctx.beginPath();
-             ctx.lineCap="round";
-             ctx.lineWidth=10;
-             ctx.moveTo(50,50);
-             ctx.lineTo(100,50);
-             ctx.stroke();
-             ctx.closePath();
+            ctx.textAlign="end";
+            ctx.fillText("HTML5_END",50,80);
 
-             ctx.beginPath();
-             ctx.lineWidth=10;
-             ctx.moveTo(100,50);
-             ctx.lineTo(100,100);
-             ctx.stroke();
-             ctx.closePath();
+            ctx.textAlign="center";
+            ctx.fillText("HTML5_CENTER",50,110);
 
-             ctx.beginPath();
-             ctx.lineWidth=10;
-             ctx.moveTo(150,50);
-             ctx.lineTo(200,50);
-             ctx.stroke();
-             ctx.closePath();
+            ctx.textAlign="left";
+            ctx.fillText("HTML5_START",50,140);
 
-             //a는 알파 즉 투명도(1에 가까울수록 완전 불투명, 0에 가까울수록 완전 투명)
-             ctx.fillStyle="rgba(255,0,0,0.2)";
-             ctx.fillRect(100,100,50,50);
-
+            ctx.textAlign="right";
+            ctx.fillText("HTML5_START",50,170);
+            
         </script>
     </div>
 </body>
