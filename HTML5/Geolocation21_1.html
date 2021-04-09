@@ -19,9 +19,10 @@
             //PositionOptions객체 설정용]
             var options = {timeout:3000,maxinumAge:5000};
             //현재 위치 정보 딱 한번만 얻기
-            navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);           
+            navigator.geolocation.getCurrentPosition(successCallback);           
         }
 
+        //위치 정보를 얻었을 때 자동으로 호출되는 콜백 함수 : 인자는 Position객체
         function successCallback(position){
             console.log("position의 자료형 : ",typeof position);
             console.log(position);
