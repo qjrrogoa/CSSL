@@ -29,3 +29,10 @@
   </dl>
    <div>
 </body>
+
+
+alert("")
+
+key(i)
+
+localstorage.clear()
