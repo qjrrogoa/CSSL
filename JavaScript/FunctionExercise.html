@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>FunctionExercise.html</title>
+    <script>
+        
+       var brace = {}; //new Object();와 같다
+       console.log("brace의 자료형 : %s, brace : %s",typeof brace, brace);
+       //속성 추가]
+       brace.naming="가길동";
+       brace.age=20;
+       brace.address="가산동";
+       var jsonToString = JSON.stringify(brace);
+       console.log("-----jsonToString의 타입 및 값------");
+       console.log(jsonToString); // "{키:값.,...}" 형태의 문자열
+       var keys = new Array;
+       var values = new Array;
+       var com = [];
+       //document.write(jsonToString.split(",").length);
+       for(var i=0;i<jsonToString.split(",").length;i++){
+        if(i=document=0)
+            com[i]=jsonToString.split(",")[i].substring(1);
+        else if(i==jsonToString.split(",").length-1)
+            com[i]=jsonToString.split(",")[i].substring(0,jsonToString.split(",")[i].length-1);
+        else
+            com[i]=jsonToString.split(",")[i];
+        }
+    
+        for(var i=0;i<com.length;i++){
+                keys.push(com[i].split(":")[0]);
+                values.push(com[i].split(":")[1])    
+        }
+   
+         document.write("brace key 값<br/>");
+       keys.forEach(function(e){
+           document.write(e+",");
+       })
+        document.write("<br/>brace value 값<br/>");
+       values.forEach(function(e){
+           document.write(e+",");
+       })
+       brace.keys
+ 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
