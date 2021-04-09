@@ -40,4 +40,10 @@ localstorage.clear()
 var 변수 = []; // 배열
 
 var 변수 = {}; // 맵
+
+for(var key in obj){
+
+console.log("%s %s", key, obj[key]
+
+}
  
