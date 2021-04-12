@@ -85,18 +85,23 @@
             this.naming = name;
             this.age=age;
             this.addr = "가산동";
-       }////////
-
-       Person("가길동",20);
+        }////////
+       console.log("-----으아-----");
+       Person("가길동",20);  ///window
        var person = new Person("가길동",20); //이때 this는 Person객체
+       var child = {};
+       child.naming = "하길동";
+       child.age = 10;
 
        console.log("-----person의 타입 및 값-----");
        console.log(typeof person);
        console.log(person);
+       console.log(typeof child);
+       console.log(child);
     
        console.log("-----JSON형태의 문자열로 변환-----");
        console.log(JSON.stringify(person));
-       //생성자 함수로 객체 생성후 함수 추가: 생성자함수명.prototype.함수명=function(){};
+       //생성자 함수로 객체 생성 후 함수 추가: 생성자함수명.prototype.함수명=function(){};
        Person.prototype.print=function(){ //인스턴스형 메서드와 같다.
             console.log("이름 : %s, 나이 : %s, 주소 : %s",this.naming,this.age,this.addr);
        };
@@ -108,9 +113,11 @@
        //-생성자함수명.함수명으로 호출
        Person.getPerson=function(args){
             console.log("이름 : %s, 나이 : %s, 주소 : %s",args.naming,args.age,args.addr);
-         };
+        };
        //호출
+       console.log("-----으아-----");
        Person.getPerson(person);
+       console.log(typeof person);
 
        var person2 = new Person("나길동",30);
        person2.addr="사당동";
@@ -121,14 +128,12 @@
        var arr = new Array();
        console.log(typeof arr);
        console.log(arr);
-       console.log(arr instanceof Array);
-       console.log(arr instanceof String);
-       console.log(arr instanceof Object);
-       console.log(person2 instanceof Person);
-       console.log(person2 instanceof Array);
-       console.log(person2 instanceof Object);
-
-
+       console.log(arr instanceof Array);//t
+       console.log(arr instanceof String);//f
+       console.log(arr instanceof Object);//t
+       console.log(person2 instanceof Person);//t
+       console.log(person2 instanceof Array);//f
+       console.log(person2 instanceof Object);//t
 
     </script>
 </head>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document12.html</title>
+</head>
+<body>
+    <h2>태그명으로 얻기</h2>
+    <input type="checkbox" name="inter" value="POL" />정치
+    <input type="checkbox" name="inter" value="ECO" />경제
+    <input type="checkbox" name="inter" value="ENT" checked />연예
+    <input type="text" name="txt" />
+    <input type="button" value="태그명으로 DOM객체 얻기" onclick="fnGetElementsByTag()" />
+    
+    <h2>이름으로 얻기</h2>
+    <input type="button" value="NAME속성에 지정한 값으로 DOM객체 얻기" onclick="fnGetElementsByName()" />
+    ​
+    <h2>태그명으로 객체 얻기2</h2>
+    <ul>
+        <li><a href="http://www.naver.com">네이버</a></li>
+        <li><a href="http://www.daum.net">다음</a></li>
+        <li><a href="http://www.nate.com">네이트</a></li>
+    </ul>
+    <button onclick="fnGetDomain()">도메인 얻어오기</button>
+
+    <h2>클래스명으로 객체 얻기</h2>
+    <ul>
+        <li><a href="#" class="portal">네이버</a></li>
+        <li><a href="#" class="portal">다음</a></li>
+        <li><a href="#" class="portal">네이트</a></li>
+    </ul>
+    <button onclick="fnGetElementsClass()">클래스명으로 DOM객체 얻어오기</button>
+    ​
+    <h3>동적으로 이미지 교체(ID로 DOM객체 얻기)</h3>
+    <fieldset>
+        <legend>이미지 교체</legend>
+        <a href="javascript:fnChangeImage(1)">1번 이미지</a>
+        <a href="javascript:fnChangeImage(2)">2번 이미지</a>
+        <a href="javascript:fnChangeImage(3)">3번 이미지</a>
+        <a href="javascript:fnChangeImage(4)">4번 이미지</a>
+        <hr />
+        <img id="image" src="#" alt="이미지교체" style="width:200px;height:200px" />
+    </fieldset>
+    
+    <fieldset>    
+        <legend>전화번호 복사</legend>
+        <select id="src">
+            <option value="010">010</option>
+            <option value="011">011</option>
+            <option value="017">017</option>
+            <option value="019">019</option>
+        </select>
+        -
+        <input type="text" size="4" maxlength="4" id="srcTxt1" />
+        -
+        <input type="text" size="4" maxlength="4" id="srcTxt2" />
+        <br />
+        <input type="button" value="복사" onclick="fnCopy()" />
+        <br />
+    
+        <select id="dest">
+            <option value="010">010</option>
+            <option value="011">011</option>
+            <option value="017">017</option>
+            <option value="019">019</option>
+        </select>
+        -
+        <input type="text" size="4" maxlength="4" id="destTxt1" />
+        -
+        <input type="text" size="4" maxlength="4" id="destTxt2" />
+    </fieldset>
+</body>
+</html>

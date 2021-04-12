@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Exersice1</title>
+    <script>
+
+    function Person(name,age){
+        console.log(this);//무조건 있어야한다,,,?? why?
+        this.name = name;
+        this.age = age;
+        this.addr = "가산동";
+    }
+    Person("가산동",20);
+    var person1 = new Person("나길동",30);
+    var person2 = new Person("하길동",50);
+    Person.prototype.print=function(){
+        console.log("이름 : %s, 나이 : %s, 주소 : %s",this.name,this.age,this.addr);
+    };
+    Person.getprint=function(args){
+        console.log("이름 : %s, 나이 : %s, 주소 : %s",args.name,args.age,args.addr);
+    }
+    person1.print();
+    //person2.getprint;
+    Person.getprint(person2);
+    
+
+
+    
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
