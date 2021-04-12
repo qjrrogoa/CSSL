@@ -37,6 +37,23 @@
         div#content ul li:last-child{
             border-radius: 0 0 10px 10px ;
         }
+        #start::first-line,#end::first-line{
+            color:red;
+            font-weight: bold;
+        }
+        #start::first-letter,#end::first-letter{
+            font-size:2em;
+        }
+        #charcter p:first-child::selection{/* 마우스 끌기? */
+            color:yellow;
+            background-color: black;
+        }
+        /* nth-child()함수에 직접 순서지정가능.
+            li태그 중 2번째 순서인 li태그들이 선택됨. 2개가 선택됨
+        */
+        li:nth-child(2){
+           color: yellow;
+        }
     </style>
 </head>
 <body>
