@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Selector01_3.html</title>
+    <style>
+        #content{
+            background-color: yellow;
+            width:300px
+        }
+        ul li{
+            list-style: none;
+            border: 1px green solid;
+            font-size: 1.4em;
+            font-weight: bold;
+            height: 50px;
+        }
+        
+        /* 홀수번째만 선택 : n은 0부터 시작 1씩 증가*/
+        div#content li:nth-child(2n+1){
+            background-color: #d95e07;
+        }
+        /* 짝수번째만 선택 */
+        div#content li:nth-child(2n){
+            background-color: green;
+        }
+        /*
+            nth-child(2n)함수가 first-child,last-child등 속성보다 
+            우선순위가 높다.
+        */
+        ul li:last-child{ /* 두 개가 선택되나 위의 nth계열이 우선 순위가 높아서 첫번째 UL의 마지막 LI만 적용 */
+            background-color: aqua;
+        }
+        div#content ul li:first-child{
+            border-radius: 10px 10px 0 0 ;
+        }
+        div#content ul li:last-child{
+            border-radius: 0 0 10px 10px ;
+        }
+    </style>
+</head>
+<body>
+    <h1>구조 선택자</h1>
+    <div id="content">
+        <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+            <li>menu6</li>
+        </ul>    
+    </div>
+
+    <h1>문자 선택자</h1>
+    <div id="charcter">
+        <p id="start">    
+            2020년 1월 6일<br />
+            6기 시작
+        </p>
+        <p id="end">
+            2020년 7월 24일<br />
+            6기 종료
+        </p>
+    </div>
+
+    <div>    
+        <ul>
+            <li>menu1</li>
+            <li>menu2</li>   
+            <li>menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+            <li>menu6</li>
+        </ul>
+    </div>
+</body>
+</html>
