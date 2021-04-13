@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>background05.html</title>
+    <style>
+        #div div{
+            background-color: green;
+            width:80%;
+            height: 400px;
+            background-image: url(../Images/shoes.png);
+            background-repeat: no-repeat;
+        }
+        #div div:first-child{
+            border: 5px yellow solid;
+            background-size: 100% 100%;
+        }
+        #div div:last-child{
+            border: 5px green solid;
+
+            background-size: 30% 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2>배경관련 CSS속성</h2>
+    <div>
+        <h2>배경색 지정</h2>
+        <div style="background-color: #f00;">블락 엘리먼트</div>
+        <span style="background-color: #00ff00;">인라인 엘리먼트</span>
+        <h2>배경 이미지 지정</h2>
+        
+        <div style="background-image: url(../Images/shoes.png);background-repeat: repeat-x;background-color: rgb(92, 205, 167);width:500px;height: 300px;">다이브 입니다.</div>
+    </div>
+    <div id="div">
+        <div></div>
+        <div></div>
+
+    </div>
+</body>
+</html>

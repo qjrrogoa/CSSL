@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercise.html</title>
+    <script>
+        var keyText, valText, textArea,span;
+        onload = function(){
+            keyText = document.getElementById("key");
+            valText = document.getElementById("val");
+            textArea = document.getElementById("result");
+            span = document.getElementById("infoMessage");
+        };
+        function save(){
+            localStorage.setItem(keyText.value,valText.value);
+            span.innerHTML = ""+keyText.value+"키로 \""+valText.value+"\"값 입력";
+            keyText.value="";
+            valText.value="";
+            keyText.focus();
+        };
+        function selectList(){
+            textArea.value="";
+            for(var i = 0; i<localStorage.length;i++){
+                var key = localStorage.key(i);
+                var val = localStorage.getItem(key);
+                textArea.value+= key+" : "+val + "\r";
+            }
+        };
+        function selectOne(){
+            if(keyText.value == 0){
+                alert("키값을 입력하세요");
+            }
+            else if(localStorage.getItem(keyText.value)==null){
+                alert(key.value+"로 조회한 결과 : 조회 내용이 없습니다.");
+                keyText.value="";
+            }
+            else{
+                alert(keyText.value+"로 조회한 결과 : "+localStorage.getItem(keyText.value));
+            }
+        };
+
+        function removeOne(){
+            if(keyText.value == 0){
+                alert("키값을 입력하세요");
+            }
+            else if(localStorage.getItem(keyText.value)==null){
+                alert("키가 존재하지 않아요");
+                keyText.value ="";
+            }
+            else{
+                alert("키:"+keyText.value+" 값:"+localStorage.getItem(keyText.value)+"를 삭제하였습니다.");
+                localStorage.removeItem(keyText.value);
+                keyText.value="";
+                selectList()
+            }
+
+        };
+
+        function removeAll(){
+            if(localStorage.length==0){
+                alert("삭제할 데이터가 없어요");
+            }
+            else{
+                alert("모두 삭제합니다.");
+                localStorage.clear();
+            }
+        };
+        
+        var array = {name:"가길동",age:20};
+        array.addr = "가산동";
+        for(var key in array){
+            console.log("키 : %s 값 : %s",key,array[key]);
+        }
+      
+    </script>
 </head>
 <body>
     <fieldset>
@@ -27,7 +95,6 @@
                 <input type="button" onclick="selectOne()" value="키로 조회" />         
                 <input type="button" onclick="selectList()" value="모두 조회" />
                 </td>
-            
             </tr>
 
             <tr style="background-color:white">
@@ -48,7 +115,7 @@
         <button onclick='setMenu()'>저장</button><br/>        
         <span id="menu" style='color:red;font-size: 1.2em;font-weight: bold;'></span>        
     </fieldset>
-   
+
    <script>
        var spanMenu = document.getElementById("menu");
        //로컬 스토리지에 저장된 메뉴가 있으면 가져와서

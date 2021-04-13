@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Paragraph04.html</title>
+</head>
+<body>
+    <h2>문단 관련 CSS속성들</h2>
+    <div>
+        <h3>컨텐츠 수직 뱡향 정렬</h3>
+        <div style="text-align: center;background-color: red;">블락 엘리먼트</div>
+        <span style="text-align: center;background-color: green;">인라인 엘리먼트</span>
+    </div>
+    <div>
+        <p style="border:1px green solid;text-align: justify;">
+            본 정부는 후쿠시마(福島) 제1원전사고로 발생한 다량의 방사성 물질 오염수를 바다에 배출하기로 했다.
+
+            일본은 자국의 안전 기준을 강화해 적용하기로 했으나 사고 원전에서 나온 125만t(톤)이 넘는 막대한 양의 오염수를 바다에 버리는 구상은 많은 논란과 우려를 낳고 있다.
+            
+            일본 정부는 후쿠시마 제1원전 탱크에 보관 중인 오염수를 해양에 방출한다는 계획을 담은 '처리수 처분에 관한 기본 방침'을 13일 관계 각료 회의에서 결정했다고 일본 언론들이 보도했다.
+            
+            배출 전에 다핵종제거설비(ALPS) 등으로 대부분의 방사성 핵종을 제거하지만 삼중수소(트리튬)는 걸러내지 못하므로 물을 섞어 농도를 낮춘 뒤 방출한다는 구상이다.
+            
+            일본 원자력규제위원회의 심사·승인 등이 필요하므로 실제 방출까지는 2년 정도가 걸릴 전망이다.
+        </p>
+        <h3>텍스트 꾸미기</h3>
+        <span style="text-decoration:overline;">윗줄 긋기</span></br>
+        <span style="text-decoration:underline;">밑줄 긋기</span></br>
+        <span style="text-decoration:line-through;">가운데 선 긋기</span></br>
+        <a href="https://www.nate.com" style="text-decoration: none;">네이트</a>
+        <h3>들여쓰기</h3>
+        <div style="text-indent: 5em;">블락 엘리먼트</div>
+        <!--들여쓸 가로 공간이 없음, 적용 안됨-->
+        <span style="text-indent: 5em;">인라인 엘리먼트</span>
+        <h3>수직방향 정렬</h3>
+        <!--세로로 움직일 공간이 없음으로 둘다 적용 안됨 또한, 블락엘리먼트의 세로폭을 늘려 영역을 확보하더라도 역시 적용 안됨-->
+        <div style="vertical-align: middle;background-color: red; height: 200px;">블락 엘리먼트</div>
+        <span style="vertical-align: middle;background-color: green;">인라인 엘리먼트</span></br>
+        <img src="../Images/button.png" alt="버튼 이미지" style="vertical-align: middle;"/>제품 이미지
+        <h3>블락엘리먼트의 컨텐츠 가운데 정렬방법</h3>
+        <div style="background-color: red; height: 200px;text-align: center;line-height: 200px;">블락 엘리먼트</div>
+    </div>
+</body>
+</html>
