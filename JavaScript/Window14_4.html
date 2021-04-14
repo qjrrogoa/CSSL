@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Window14_4.html</title>
+    <script>
+        /*
+        escape(): 한글이나 일본어 및 중국어등 2바이트로 표현하는
+        언어들을 UTF-8 형식으로 인코딩 
+        숫자나 영문자는 아스키코드로 표현함으로 인코딩이 안됨
+
+        더 정확힘 말하면 16진수 4자리로 표현하는 유니코드로 인코딩 됨.
+
+        빈공백은 %20으로 인코딩 처리됨
+        Ajax나 jQuery Ajax에서 한글 처리시 주로 사용
+        */
+       var escapeString = "안녕 가! HELLO 123456789";
+       console.log(escape(escapeString))
+       //%uC548%uB155%20%uAC00%21%20HELLO%20123456789
+       //unseacpe():UTF-8형식으로 인코딩된 값을 디코딩
+       //console.log(unescape("%uC548%uB155%20%uAC00%21%20HELLO%20123456789"));
+       //document.write("<script>alert('메시지 대화상자')<\/script>");
+
+        //eval("문자열"):매개변수에 있는 값을 자바스크립트로 해석
+        //JSON형식의 데이터"{name:"홍길동",age:10} 처리하거나
+        //문자열을 특정 DOM객체러 처리시.
+        //문자열을 쟈스코드로 실행한다.
+        //eval("alert('메시지 대화상자');");
+
+        var str = '{"name":"이길동","age":20}';
+        console.log("%O",str);
+        console.log(typeof str);
+        //console.log(str.name);//undefined
+        
+        //JSON.parse("JSON형식의 문자열") : 문자열을 JSON객체로 변환해서 반환
+        //단, 문자열 전체를 ''로 감싸고 키값은 ""으로 물론 값도""(숫자나 불린값은 예외)
+        var json = JSON.parse(str);
+        console.log("%O",json);
+        console.log(typeof json);
+        console.log(json.name);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
