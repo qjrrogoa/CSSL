@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DisplayVisibility09.html</title>
+    <style>
+        fieldset{
+            width:300px;
+        }
+
+        fieldset div{
+            width:50px;
+            height: 50px;
+        }
+
+        .inline div{
+            /* 가로배치되고 inline으로 바뀜 */
+            display: inline;
+        }
+
+        .inline_block div{
+            /* 가로배치되나 block 그대로 유지됨 */
+            display: inline-block;
+        }
+        
+        /* 인라인 엘리먼트를 블락 엘리먼트로 변경 */
+        /*
+        .block span{
+            display: block;
+        }
+        */
+    </style>
+</head>
+<body>
+    <h2>dispaly 및 visibility CSS속성</h2>
+    <div>
+        <h3>visibility</h3>
+        <fieldset>
+            <legend>visibility:hidden일때 영역은 그대로 존재</legend>
+            <div style="background-color: red;">left</div>
+            <div style="background-color: green;visibility: hidden;">center</div>
+            <div style="background-color: blue;">right</div>
+        </fieldset>
+
+        <h3>display</h3>
+        <fieldset>
+            <legend>display:none일때 영역도 사라짐</legend>
+            <div style="background-color: red;">left</div>
+            <div style="background-color: green;display: none;">center</div>
+            <div style="background-color: blue;">right</div>
+        </fieldset>
+
+        <h3>HTML5의 hidden속성</h3>
+        <fieldset>
+            <legend>태그의 hidden속성으로 display:none 효과 적용</legend>
+            <div style="background-color: red;">left</div>
+            <div style="background-color: green" hidden>center</div>
+            <div style="background-color: blue;">right</div>
+        </fieldset>
+
+        <h3>block -> inline</h3>
+        <fieldset class="inline">
+            <legend>가로배치로 변경</legend>
+            <div style="background-color: red;">left</div>
+            <div style="background-color: green">center</div>
+            <div style="background-color: blue;">right</div>
+        </fieldset>
+
+        <h3>block -> inline-block</h3>
+        <fieldset class="inline_block">
+            <legend>가로배치로 변경되나 블락엘리먼트의 특징은 그대로 유지</legend>
+            <div style="background-color: red;">left</div>
+            <div style="background-color: green">center</div>
+            <div style="background-color: blue;">right</div>
+        </fieldset>
+
+        <h3>inline -> block</h3>
+        <fieldset class="block">
+            <legend>세로배치</legend>
+            <span style="background-color: red;">left</span>
+            <span style="background-color: green">center</span>
+            <span style="background-color: blue;">right</span>
+        </fieldset>
+        
+        <script>
+            var toggle = false;
+            var spans=document.getElementsByTagName("span");  ///HTMLCollection 타입
+            HTMLCollection.prototype.forEach=Array.prototype.forEach;
+
+            function toBlock(obj){
+                var display;
+                if(!toggle){
+                    display = "block";
+                    obj.innerHTML="인라인으로";
+                }
+                else{
+                    display="inline"
+                    obj.innerHTML="블락으로";
+                }
+                spans.forEach(function(e){
+                    e.style.display = display;
+                });
+                toggle = !toggle;
+            }
+        </script>
+        <button onclick="toBlock(this)">블락으로</button>
+    </div>
+</body>
+</html>
