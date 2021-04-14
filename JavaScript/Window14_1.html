@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Window14_1.html</title>
+    <script>
+        var fn={
+            //메시지 대화상자:window.alert("뿌려줄 메시지");
+            login:function(){
+                var userText=document.getElementById("user")
+                if(userText.value==""){
+                    alert("아이디를 입력하세요");
+                    userText.focus();
+                }
+            },
+            //확인 대화상자 : boolean window.confirm("확인메시지")
+            drop:function(){
+                var flag = confirm("정말로 퇴실할래요?");
+                console.log(flag)
+                if(flag == true){
+                    //퇴실처리 로직..
+                    console.log("퇴실처리 되었어요");
+                }
+            },
+            //입력 대화상자 : String Window.prompt("메시지","기본값")
+            //주로 사용 안함
+            insertName:function(){
+                var name = prompt("이름을 입력하세요","가길동");
+                alert("당신의 이름은 " + name+"이군요");
+            },
+            insertAge:function(age){
+                var age1 = prompt("나이를 입력하세요",age);
+                alert("당신의 10년 후 나이는 " +(parseInt(age1)+10)+"살이군요");
+            }
+    };
+
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>대화 상자들</legend>
+        아이디 <input type="text" id="user" />
+        <input type="button" value="로그인" onclick="fn.login()" />
+        <input type="button" value="퇴실" onclick="fn.drop()" />
+        <input type="button" value="입력" onclick="fn.insertName()" />
+        <input type="button" value="나이입력" onclick="fn.insertAge(20)" />
+    </fieldset>
+</body>
+</html>

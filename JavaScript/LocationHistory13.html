@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>LocationHistory13.html</title>
+    <script>
+        //바로 자동으로 페이지 이동]
+        //location.href="www.naver.com";
+        function fnLogin(){
+            var user = document.getElementById("user").value;
+            var pass = document.getElementById("pass").value;
+            //가정] 아이디가 KIM이고 비번이 1234인 경우 회원이라고 가정하자
+            //회원이면 마이페이지(IF04.html)로 자동으로 이동시키고
+            //회원이 아니면 회원가입페이지(ForWhile06.html)로 자동이동 시키자
+            if(user == "KIM" && pass=="1234"){
+                //회원인 경우 마이페이지로 자동 이동
+                //location.href="IF04.html";
+
+                //replace()함수로 페이지 이동시 뒤로가기 비활성화 됨.
+                location.replace("IF04.html");
+            }
+            else{
+                //비회원인 경우 회원 가입페이지로 자동 이동시키자
+                //location.href="ForWhile06.html";
+               
+                //replace()함수로 페이지 이동시 뒤로가기 비활성화 됨.
+                location.replace("ForWhile06.html");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>location & history & navigator객체</h2>
+    <fieldset>
+        <legend>로그인 화면</legend>
+        아이디 <input type="text" id="user" />
+        비밀번호 <input type="password" id="pass" />
+        <input type="button" value="로그인" onclick="fnLogin();" />
+        <input type="button" value="새로고침" onclick="location.reload();" />
+        <input type="button" value="history테스트" onclick="location.href = 'Operator02.html';" />
+        <input type="button" value="다음 페이지" onclick="history.go(1)" />
+        <input type="button" value="이전 페이지" onclick="history.back()" />
+        <input type="button" value="웹브라우저 종류" onclick="alert(navigator.userAgent)" />
+    </fieldset>
+</body>
+</html>

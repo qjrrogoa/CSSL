@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>MarginPadding07.html</title>
+</head>
+<body>
+    <h2>여백관련 속성</h2>
+    <div>
+        <div style="border:1px red solid;padding-top:20px;padding-left:40px;padding-bottom: 80px;">상하좌우 여백 각각 지정(블락 엘리먼트)</div>
+        <div style="border:1px green solid;padding:40px">상하좌우 여백 동시 지정(블락 엘리먼트)</div>
+        <!--왼쪽 여백을 줄때만 컨텐츠가 오른쪽으로 움직인다.
+            그외(위/아래/오른쪽)는 텍스트 현 위치에 있고 영역만 늘어남-->
+        <span style="border:1px red solid;padding-top:20px;padding-bottom:40px;padding-right: 80px;padding-left: 40px;">인라인 엘리먼트</span>
+        <h3>margin</h3>
+        <fieldset>
+            <legend>block과 block</legend>
+            <div style="border:1px red solid;margin-bottom: 50px;margin-right: 100px;">block1</div>
+            <div style="border:1px green solid;margin-top: 100px;">block2</div>
+        </fieldset>
+        <fieldset>
+            <legend>block과 inline</legend>
+            <div style = "border:1px red solid;margin-bottom :50px">block</div>
+            <!-- 인라인도 margin-left는 부모영역과의 여백이다:margin-left와 margin-right만 적용됨-->
+            <span style = "border:1px green solid;margin-left: 50px;margin-top: 50px;">inline</span>
+        </fieldset>
+        <fieldset style="padding-top:50px">
+            <legend> inline과 inline </legend>
+            <span style="border:1px red solid;margin-right: 100px;margin-top:500px">inline1</span>
+            <span style="border:1px green solid;margin-left:50px">inline2</span>
+        </fieldset>
+        <fieldset>
+            <legend>컨텐츠 정렬</legend>
+            <!--
+                수평정렬 : text-align:center
+                수직정렬 : height와 line-height값을 동일하게
+            -->
+            <div style="border:1px red solid;width:200px;text-align: center;height:200px;line-height: 200px;">컨텐츠</div>
+        </fieldset>
+    </div>
+</body>
+</html>
