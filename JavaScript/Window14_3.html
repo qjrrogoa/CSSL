@@ -69,9 +69,9 @@
         //문] 현재 페이지가 웹브라우저에 로드시 'clock'이라는 아이디를 가진 span 태그에
         //?시?분?초를 표시하되 1초마다 갱신되어야한다
         var span = document.getElementById("clock");
-        var date = new Date();
-        var time = date.getHours()+"시 "+date.getMinutes()+"분 "+date.getSeconds()+"초";
         setInterval(function(){
+            var date = new Date();
+            var time = date.getHours()+"시 "+date.getMinutes()+"분 "+date.getSeconds()+"초";
             span.innerHTML=time;
         },1000)
     </script>
