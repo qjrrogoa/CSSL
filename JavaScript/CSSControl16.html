@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSSControl16.html</title>
+    <script>
+        /*
+        [자바스크립트로 CSS제어하기]
+        해당 엘리먼트객체.style.css속성="CSS속성값";
+        단, CSS속성을 자바스크립트로 표현할때는
+        -(DASH)가 빠지고 두번째 글자의 첫글자가 대문자로 바뀜
+        단, -가 없는 CSS속성인 경우 그냥 소문자로 접근하면됨
+        예]
+        font-size:10pt(CSS);
+        color:red(CSS);
+        background-image:url(이미지경로);
+
+        객체.style.fontSize="10pt";(자바스크립트)
+        객체.style.color="red";(자바스크립트)
+        객체.style.backgroundColor="url";(자바스크립트)
+        */
+       var span,p;
+       window.onload=function(){
+           span = document.getElementById("span")
+           p = document.getElementById("article")
+       };
+
+       function setFont(){
+           span.style.fontSize="2em";
+           span.style.color="red";
+           span.style.fontWeight="bold";
+       }
+       
+       function fnArticle(obj){
+                switch(obj){
+                    case "+":
+                        p.style.fontSize = parseInt(p.style.fontSize) * 1.3 + "px";
+                        break;
+                    case "-":
+                        p.style.fontSize = parseInt(p.style.fontSize) * 0.7 + "px";
+                        break;
+                    case "R":
+                        p.style.color = "red";
+                        break;
+                    case "G":
+                        p.style.color = "green";
+                        break;
+                    case "B":
+                        p.style.color = "blue";
+                        break;
+                    case "":
+                        p.style.color = "black";
+                        break;
+                    case "BO":
+                        p.style.fontWeight = "bold";
+                        break;
+                    case "NO":
+                        p.style.fontWeight = "normal";
+                        break;
+                    }
+       }////function
+
+    </script>
+</head>
+
+<body>
+    <h2 style="color:red" onclick="this.style.color='black';">자바스크립트로 CSS제어하기</h2>
+    <span id="span">SPAN태그</span>
+    <input type="button" value="글꼴바꾸기" onclick="setFont()" />
+
+    <fieldset>
+        <legend >신문기사</legend>
+        <button onclick="fnArticle('+')">+</button>
+        <button onclick="fnArticle('-')">-</button>
+        <button onclick="fnArticle('R')">Red</button>
+        <button onclick="fnArticle('G')">Green</button>
+        <button onclick="fnArticle('B')">Blue</button>
+        <button onclick="fnArticle('')">Black</button>
+        <button onclick="fnArticle('BO')">볼드체</button>
+        <button onclick="fnArticle('NO')">보통</button>
+        <p style="font-size:10px;" id="article">
+            박 대통령은 이날 청와대에서 열린 대통령 주재 수석비서관회의에<br />
+            참석해 이 같이 밝히며 “각 수석들은 국민을 대신해 일하고<br />
+            있는 분들인 만큼, 국민을 위해서 잘못된 그 어떤 것들에도<br />
+            결코 굴복하거나 용인하지 않겠다는 강한 의지를 가지고<br />
+            일해주길 바란다”고 당부했다.<br />
+        </p>
+    </fieldset>
+</body>
+</html>
