@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>TransForm13_2.html</title>
+    <style>
+        #rect1,#rect2{
+            width:100px;
+            height:100px;
+            /* 변형을 통한 애니메이션 구형 */
+            /* 변형이 일어나는 시간을 각 CSS 속성별로 다르게 줄 수 있다. */
+            transition-duration: 5s,3s,2s;
+            /* 변형을 가할 css속성 설정*/
+            transition-property: background-color,width,height;
+            float:left;
+        }
+
+        #rect1{
+            background-color: red;
+        }
+
+        #rect2{
+            background-color: green;
+        }
+
+        #rect1:hover{
+            width:300px;
+            height: 200px;
+            background-color: #ca2384;
+        }
+
+        #rect2:hover{
+            width:200px;
+            height: 300px;
+            background-color: #65dddd;
+        }
+        /*
+        아래는 clear효과 즉 위 블락 엘리먼트의 float효과 제거
+        step1]float속성을 준 태그를 감싼다
+        step2]감싼 부모태그에 overflow:hidden
+        */
+        #content{
+            overflow:hidden
+        }
+
+    </style>
+</head>
+<body>
+    <h2>변형</h2>
+    <div id="content">
+        <div id="rect1"></div>
+        <div id="rect2"></div>
+    </div>
+    <div style="width:100px;height:100px;background-color: gold;"></div>
+</body>
+</html>

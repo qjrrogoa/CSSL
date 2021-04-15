@@ -41,6 +41,52 @@
 
         var ev = eval("("+str+")");
         console.log(ev.age);
+
+        /*
+            isNaN() : Is NOT A NUMBER
+            숫자인지 아닌지 판단하는 함수
+            숫자라면 false 숫자가 아니면 true반환
+        */
+        
+        console.log("[isNaN() 함수]");
+        isNaN("100A") ? console.log("숫자가 아니다") : console.log("숫자다");
+        isNaN("가100A") ? console.log("숫자가 아니다") : console.log("숫자다");
+        isNaN("100") ? console.log("숫자가 아니다") : console.log("숫자다");
+
+        /*
+            parseInt() : 숫자부분만 반환해주는 함수
+                         단, 숫자가 아닌 문자로 시작하면 NaN반환.
+        */
+        console.log("[parseInt() 함수]");
+        console.log(parseInt("1004")+10);
+        console.log(parseInt("10A")+10);
+        console.log(parseInt("10a")+10);
+        console.log(parseInt("가1004")+10); //NaN
+
+        /*
+        [encodeURI() / decodeURL()]
+        최소한의 문자만 인코딩
+        ; / ? : @ 등등
+        문자들은 인코딩하지 않음
+
+        [encodeURIComponent() / decodeURIComponent()] - 추천
+        알파벳과 숫자 외의, 대부분의 문자를 모두 인코딩
+
+        [escape() / unescape()]
+        encodeURI() 와 encodeURIComponent()의 중간 정도의 범위로 문자를 인코딩
+        */
+
+        var query = "name=가길동&key=you&age=30";
+        console.log("encodeURI:"+window.encodeURI(query)); //최소
+        console.log("escape:"+window.escape(query)); //중간
+        console.log("encodeURIComponent:"+window.encodeURIComponent(query)); //최대
+
+
+
+
+
+
+    
     </script>
 </head>
 <body>

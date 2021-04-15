@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ImportMedia15.html</title>
+    <!--
+        <link href="Styles/import.css" rel="stylesheet">
+    -->
+    <style>
+        /*
+            import규칙을 이용한 외부 css파일 적용
+            반드시 style태그 안에
+            반드시 style태그 최상단에 위치(안그러면 적용이 안된다.)
+        */
+        @import url(Styles/import.css);
+        .content{
+            color:yellow;
+            background-color: black;
+        }
+
+        /* media 규칙은 위치에 상관없음 */
+        @media screen{
+            .content{
+                color:white;
+            }
+        }
+
+        @media print{
+            .content{
+                background-color: white;
+                color:black
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="content">
+        <p>
+            한 남성이 자전거를 타고 달리고 있다. 그런데 그의 시선이 향한 곳은 정면이 아닌, 
+            스마트폰. ‘어…어…’ 그를 지켜보던 이들의 우려는 순식간에 현실이 된다. 
+            스마트폰에 열중한 나머지 정차된 승합차를 보지 못하고 부딪히고 만 것이다. 
+            네덜란드에서 최근 발생한 이 일은 자전거 운행 중 스마트폰 사용이 왜 위험한지 
+            보여준다며 13일(현지시간) 영국 데일리메일이 소개했다. 
+            매체는 당시의 모습이 담긴 이 폐쇄회로 TV(CCTV) 영상은 페이스북에서만 900만회 이상 공유됐다고 전했다. 
+            영상 속에서 자전거는 앞바퀴가 먼저 승합차에 걸리면서 멈춰 섰다. 
+            남성의 몸은 앞으로 쏠려 상체와 얼굴이 승합차에 세게 부딪히고 말았다. 
+            차량이 앞뒤로 흔들릴 정도의 충돌에 놀라는 남성의 표정도 영상에 담겼다. 
+            중심을 잃은 남성은 자전거 핸들을 놓쳤고, 통증을 느낀 듯 손으로 얼굴을 감쌌다. 
+            다행히 남성은 큰 부상은 입지 않았다고 매체는 전했다. 
+        </p>
+    </div>
+</body>
+</html>

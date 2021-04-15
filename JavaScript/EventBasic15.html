@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EventBasic15.html</title>
+    <script>
+        /*
+        모든 엘리먼트(태그,요소)에는 사용자가 발생시킨 이벤트가 있다.
+
+        리스너: 이벤트가 발생할지 듣고 있는 객체
+        on계열의 리스너가 있다.(onXXXX 여기서 XXXX는 이벤트명)
+        리스너는 태그안에 속성으로 기술할 수 있다
+
+        [이벤트 처리방법]
+        1] 해당 태그에 직접 on계열의 리스너 부착
+        예] <a href="#" onclick="이벤트를 처리할 자바스크립트 코드">텍스트</a>
+        2] 해당 태그 객체를 얻어 와서 해당 태그 객체의 속성에 익명함수를 할당해서 처리
+        
+        예]<a href="#" >텍스트</a>
+        document객체의 getElemXXXByXXX()메소드로 얻어 와서
+        얻어온 객체.on이벤트명 = function(){}
+        혹은 얻어온 객체.addEventListener("on을 뺀 이벤트명",function(){});
+
+        주요 이벤트]
+
+        load이벤트: 페이지가 웹브라우저에 처음 로딩될때
+        발생하는 이벤트
+        -리스너:onload
+        -body태그안에서만 기술가능
+
+        <body onload="자바스크립트 코드">
+
+        unload : 페이지가 닫히거나
+        다른 페이지로 이동할때 발생하는 이벤트
+        (파이어폭스는 적용 안됨)
+        -리스너:onunload
+        -body태그안에서만 기술가능
+
+        -무명함수로 처리시에는 window객체에 onunload리스너 부착
+
+        <body onunload="자바스크립트 코드">
+
+        submit이벤트:type="submit" 혹은 type="image"인 경우
+        클릭시 발생하는 이벤트
+        즉 어떤 값을 action에 지정한 페이지로 전송시(submit)시
+        발생하는 이벤트
+        -onsubmit
+        -form태그안에서 사용가능
+        reset이벤트:type="reset"버튼 클릭시 발생하는 이벤트
+        -onreset
+        -form태그안에서 사용가능
+
+        click이벤트:가장 많이 씀 .모든 태그에서 사용가능
+        사용자가 해당 엘리먼트(태그)영역을 클릭햇을때
+        발생하는 이벤트(onclick)
+        모든 태그에 적용 됨.
+
+        change이벤트:<select> 에서 선택을 바꿀때마다
+        아래에서는 onclick을 사용해라
+        <input type="radio"
+        <input type="checkbox"에서 선택을 바꿀때마다
+        발생하는 이벤트
+
+        키보드 이벤트:텍스트상자(<input type="text"
+        <input type="password"등
+        입력상자에서 적용되는 이벤트
+        keydown:모든 키를 누를때 발생하는 이벤트
+        keyup:키보드를 떨때 발생하는 이벤트
+        keypress:문자키를 누를때 발생하는 이벤트(방향키나 DELETE키 누를때는
+        발생안함-FIREFOX에서만 적용안됨)
+
+        마우스 이벤트:
+        mousedown:태그영역에서 마우스 다운시
+        mouseup:마우스 뗐을때
+        mouseover:영역에 마우스가 들어 왓을때
+        mouseout:영역에서 마우스가 나갔을때
+        포커스 관련 이벤트
+        focus:포커스(커서)를 얻었을 발생하는 이벤트(리스너:onfocus)
+        blur:포커스(커서)를 잃었을때 발생하는 이벤트(리스너:onblur)
+
+        ※이벤트 취소
+        리스너에 false를 리턴하면 해당 이벤트가 취소된다
+
+        예] 유명함수 <태그명 on이벤트명="return false">
+        익명함수 태그객체.on이벤트명 =function(){return false;}
+        */
+
+        //방법2] 객체의 on계열 속성 사용해서 load이벤트 (window객체)처리
+        /*
+        window.onload=function(e){
+            alert('load 이벤트 발생');
+            console.log('load이벤트 발생');
+            console.log("%O",e);
+            console.log(typeof e);
+            console.log(e)
+        };*/
+        
+        //방법3]객체의 addEventListener("on을 뺀 이벤트명",function(){})함수로 구현
+        
+        //console.log('%O',document.forms[0].action); 에러난다.
+        //form 메모리 로드가 되기전에 불러와서
+
+        //함수는 폼요소가 브라우저에 로드 된 이후에 함수가 불려진다.
+        window.addEventListener("load",function(){
+            console.log('load 이벤트 발생');
+            console.log('%O',document.forms[0].action);
+            console.log('%O',document.getElementsByTagName("form")[0].action);
+
+            var form = document.forms[0];
+            //방법2]- form객체 얻어서 onsubmit속성 이용
+            //form.onsubmit = fnSubmit;//함수명만 ()는 뺀다 혹은 아래처럼 함수 표현식 사용
+            /*
+            form.onsubmit = function(){
+                return fnSubmit();
+            };
+            */
+           //방법3] 객체의 addEventListener("submit",function(){})함수로 구현
+           //form.addEventListener("submit",function(){return fnSubmit();});//이벤트 취소처리가 안된다.
+           form.addEventListener("submit",function(e){
+            var textElement=document.forms[0].txt;
+            if(textElement.value ==""){
+                alert("입력 하세요");
+                textElement.focus();
+                //return false;//이벤트 취소가 안된다.
+                //이벤트 취소
+                e.preventDefault();
+                }
+           })
+        });
+
+        //submit  이벤트 처리
+        //방법1]-form 태그에 onsubmit 속성 추가
+        function fnSubmit(){
+            var textElement=document.forms[0].txt;
+            if(textElement.value ==""){
+                alert("입력 하세요");
+                textElement.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<!--방법 1] 태그에 속성으로 on 계열 부착-->
+<!--
+<body onload="alert('load 이벤트 발생');console.log('load이벤트 발생');">
+-->
+<body>
+    <h2 id="h2">이벤트 기본</h2>
+    <fieldset>
+        <legend>submit 및 reset이벤트</legend>
+        
+        <!-- 방법1] 태그에 리스너 부착 -->
+        <!-- 
+        <form action="https://www.naver.com" onsubmit="return fnSubmit();">
+        -->
+        <form action="https://www.naver.com">
+            <input type="text" name="txt"/>
+            <input type="submit" value="전송"/>
+            <input type="reset" value="취소"/>
+        </form>
+    </fieldset>
+    <script>
+        console.log("%O",document.forms[0].action);
+    </script>
+</body>
+</html>
