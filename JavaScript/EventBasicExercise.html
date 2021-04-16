@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EventBasicExercise.html</title>
+    <script>
+        //방법2] 객체의 on계열 속성 사용해서 load이벤트 (window객체)처리
+        
+        window.onload=function(){
+            console.log('load이벤트 발생');            
+            var form = document.forms[0];
+            var textElement = document.forms[0].txt;
+            //1. onsubmit
+            form.onsubmit = function(){
+                console.log('submit이벤트 발생');            
+                textElement = document.forms[0].txt;
+                if(textElement.value==""){
+                    alert("내용을 입력하세요.");
+                    textElement.focus();
+                    return false;
+                }
+                else if(textElement.value=="naver"){
+                    return true;
+                }
+                else {
+                    alert("내용을 확인하세요.");
+                    textElement.focus();
+                    return false;
+                }
+            }
+            //2. reset
+            form.onreset = function(){
+                console.log("reset이벤트 발생")
+                console.log(textElement.value)
+            }
+            //3. click
+            var h2Element = document.getElementById("h2");
+            h2Element.onclick = function(){
+                alert("h2영역에서 onclick 이벤트 발생!!");
+            }
+        };
+        /*
+        window.addEventListener("load", function () {
+            console.log('load 이벤트 발생');
+            console.log('%O', document.forms[0].action);
+            console.log('%O', document.getElementsByTagName("form")[0].action);
+
+            var form = document.forms[0];
+            //form.onsubmit = fnSubmit;//함수명만 ()는 뺀다 혹은 아래처럼 함수 표현식 사용
+            
+            form.addEventListener("submit", function (e) {
+                var textElement = document.forms[0].txt;
+                if(textElement.value == "") {
+                    alert("입력 하세요");
+                    textElement.focus();
+                    e.preventDefault();
+                }
+            })
+
+            form.addEventListener("reset", function (e) {
+                console.log("reset이벤트 발생");
+                var textElement = document.getElementsByName("txt")[0];
+                console.log(textElement.value);
+                e.preventDefault();//이벤트 취소
+            });
+            var h2Element = document.getElementById("h2");
+           
+            h2.addEventListener("click", function () {
+                alert("h2요소 영역에서 click이벤트 발생!!!");
+            })
+
+            //div객체 얻기]
+            var div = document.getElementsByTagName("div")[0];
+            div.onclick = function () {
+                alert("div에 click이벤트 발생");
+            }
+            //a태그 객체 얻기
+            var aElement = document.getElementsByTagName("a")[2];
+            aElement.addEventListener("click", function () {
+                alert(aElement.innerHTML);
+            })
+
+        });
+
+        */
+
+    </script>
+</head>
+
+<body>
+    <h2 id="h2">이벤트 기본</h2>
+    <fieldset>
+        <legend>submit 및 reset이벤트</legend>
+        <form action="https://www.naver.com">
+            <input type="text" name="txt" />
+            <input type="submit" value="전송" />
+            <input type="reset" value="취소" />
+        </form>
+    </fieldset>
+    <script>
+        function fnClick(obj) {
+            console.log(obj);
+            console.log("%O", obj)
+            console.log(obj.href);
+            if (obj.href != undefined) {
+                console.log(obj.innerHTML)
+            }
+        }
+    </script>
+    <fieldset>
+        <legend>click이벤트</legend>
+        <div style="border:1px red solid">DIV클릭 이벤트</div>
+        <a href="#" onclick="alert('a태그에 클릭 이벤트 발생');fnClick(this);" style="border:5px red dotted">A 클릭 이벤트(#)</a>
+        <a href="javascript:alert('a태그에 클릭 이벤트 발생');fnClick(this);" style="border:5px green dashed">A 클릭
+            이벤트(#)(javascript함수())</a>
+        <a href="#">순수 a태그만</a>
+    </fieldset>
+
+    <script>
+        var fnSelect = function(obj){
+            console.log("%O",obj);
+            console.log("선택된 인덱스:",obj.selectedIndex);
+            console.log("총 아이템 수:",obj.options.length);
+            console.log("총 아이템 수:",obj.length);
+            console.log("선택한 값",obj.value);
+            console.log("선택한 값",obj.options[obj.selectedIndex].value);
+            console.log("[다중 선택 모드]:선택한 값들 출력");
+            for(var i=0;i<obj.length;i++){
+                if(obj.options[i].selected){
+                    console.log(obj.options[i].value)
+                }
+            }
+            console.log(obj.options[obj.selectedIndex].innerHTML);
+            console.log(obj.options[obj.selectedIndex].text);
+
+        };
+        function selectGrade(){
+            var select = document.getElementsByTagName("select")[0];
+            //if(select.selectedIndex == 0 ){
+            if(select.value==""){//value = ""을 준 경우에
+                alert("학력을 선택하세요")
+                select.focus();
+            }
+        }
+
+        function fnChoice(obj){
+            console.log(obj.type);
+            console.log(typeof obj.type)
+            if(obj.type=="radio")
+                console.log(obj.value+" 선택");
+            else{
+                if(obj.checked)
+                    console.log(obj.value+" 선택");
+                else
+                    console.log(obj.value+" 해제");
+
+            }
+        }
+    </script>
+
+    <!-- radio, checkbox는 click 이벤트,, select는 change 이벤트!-->
+    <h2 onclick="selectGrade()">선택여부 알아내기</h2>
+    <fieldset>
+        <legend>change이벤트</legend>
+        <select onchange="console.log('change이벤트 발생'); fnSelect(this)" >
+            <option value="">학력 선택</option>
+            <option value="초딩">초등학교</option>
+            <option value="중딩">중학교</option>
+            <option value="고딩">고등학교</option>
+            <option value="대딩">대학교</option>
+        </select>
+        <input type="radio" name="gender" value="남자" onclick="fnChoice(this)"/>남자
+        <input type="radio" name="gender" value="여자" onclick="fnChoice(this)"/>여자 ​
+        <input type="checkbox" name="inter" value="정치" onclick="fnChoice(this)"/>정치
+        <input type="checkbox" name="inter" value="경제" onclick="fnChoice(this)"/>경제
+        <input type="checkbox" name="inter" value="스포츠" onclick="fnChoice(this)"/>스포츠​
+    </fieldset>
+</body>
+
+</html>

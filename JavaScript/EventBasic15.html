@@ -66,7 +66,7 @@
         <input type="password"등
         입력상자에서 적용되는 이벤트
         keydown:모든 키를 누를때 발생하는 이벤트
-        keyup:키보드를 떨때 발생하는 이벤트
+        keyup:키보드를 뗄때 발생하는 이벤트
         keypress:문자키를 누를때 발생하는 이벤트(방향키나 DELETE키 누를때는
         발생안함-FIREFOX에서만 적용안됨)
 
@@ -119,7 +119,7 @@
             //form.addEventListener("submit",function(){return fnSubmit();});//이벤트 취소처리가 안된다.
             form.addEventListener("submit", function (e) {
                 var textElement = document.forms[0].txt;
-                if (textElement.value == "") {
+                if(textElement.value == "") {
                     alert("입력 하세요");
                     textElement.focus();
                     //return false;//이벤트 취소가 안된다.
@@ -129,7 +129,7 @@
             })
 
             //reset이벤트 처리 - 원래는 reset이벤트에 의해 초기화 되지만
-            // 초기화가 안되도록 이벤트 처리해보자.
+            //초기화가 안되도록 이벤트 처리해보자.
             form.addEventListener("reset", function (e) {
                 console.log("reset이벤트 발생");
                 var textElement = document.getElementsByName("txt")[0];
@@ -192,7 +192,6 @@
     <h2 id="h2">이벤트 기본</h2>
     <fieldset>
         <legend>submit 및 reset이벤트</legend>
-
         <!-- 방법1] 태그에 리스너 부착 -->
         <!-- 
         <form action="https://www.naver.com" onsubmit="return fnSubmit();">
@@ -275,7 +274,6 @@
 
             }
         }
-
     </script>
 
     <!-- radio, checkbox는 click 이벤트,, select는 change 이벤트!-->
