@@ -31,19 +31,34 @@
 </body>
 
 
-alert("")
+#HTML
 
-key(i)
+  
+1] TextBasic01
+---
+    
+    <br/>  : 엔터키
+    &nbsp; : 스페이스바
 
-localstorage.clear()
+2] TextBasic02
+---
+  
+    <u> : 밑줄 긋기 
+    <s>,<del>,<strike> : 가운데 줄 긋기 
+    <i> : 이탤릭체 
+    <strong> : 글자 진하게 
+    <sup> : 위첨자 
+    <sub> : 아래첨자 
 
-var 변수 = []; // 배열
+    * 중요
+        인라인 엘리먼트 안에는 블락 엘리먼트를 넣을 수 없다.
+        블락 엘리먼트 안에는 다 가능하다.
 
-var 변수 = {}; // 맵
-
-for(var key in obj){
-
-console.log("%s %s", key, obj[key]
-
-}
- 
+3] TextBasic03
+---
+        &nbsp;  : 스페이스바 한번(빈칸)
+        &gt;    : > (greater then)
+        &lt;    : < (letter then)
+        &amp;   : &
+        &quot;  : "(double quotation)
+        &apos; 혹은 &# 39 : '&apos;'는 IE에서는 적용 안됨
