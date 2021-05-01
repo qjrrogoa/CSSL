@@ -56,9 +56,44 @@
 
 3] TextBasic03
 ---
-        &nbsp;  : 스페이스바 한번(빈칸)
-        &gt;    : > (greater then)
-        &lt;    : < (letter then)
-        &amp;   : &
-        &quot;  : "(double quotation)
-        &apos; 혹은 &# 39 : '&apos;'는 IE에서는 적용 안됨
+
+    &nbsp;  : 스페이스바 한번(빈칸)
+    &gt;    : > (greater then)
+    &lt;    : < (letter then)
+    &amp;   : &
+    &quot;  : "(double quotation)
+    &apos; 혹은 &# 39 : '&apos;'는 IE에서는 적용 안됨
+        
+4] Form04_1
+---
+    
+    form태그 : 사용자가 입력한 값 혹은 선택한 값을 서버로 전송할 때 사용하는 태그
+        
+    주요 속성 
+    action : 사용자가 입력한 값을 전송할 서버상에 있는 페이지 경로 지정
+           (action생략시 기본값은 자신의 페이지)
+    method : get, post(생략시 get)
+           get : 데이터 노출 됨, http 요청 헤더에 포함되서 전송됨, 최대 4KB
+           post : 데이터 노출 안됨, http 요청 바디에 내용이 포함되서 전송됨, 무한대
+    targer : 이 속성은 a태그의 target속성과 같은 기능
+    enctype : URL인코딩 박싱 지정
+
+5] Form04_2
+---
+    form하위 태그
+    [1] type 속성
+    text : 한 줄 입력상자
+    password : 입력시 입력한 값이 노추 안되게
+    checkbox : 여러개 선태 가능한 체크 박스 표시
+              체크된 상태로 보여주려면 checked  속성 추가
+    radio : 하나만 선택 가능한 라디오 박스 표시할 때
+            체크된 상태로 보여주려면 checked 속성 추가
+    hidden : 값을 웹브라우저에 표시하지 않고 전송하고자 할 때 브라우저에 보이지 않음
+    
+    [2] name 속성
+    [3] value 속성
+---ㄱ
+---ㅅ
+---ㅓ
+---ㅇ
+---
