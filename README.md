@@ -113,8 +113,37 @@
     #아이디명 { } : 아이디 선택자
     
     
+# 자바스크립트
+
+1] Variable01
+---
+    var num1=10, num2; 
+    var str1="쟈스", str2;
+    var date = new Date()
+    var nullvar = null;
+    var obj{};
     
-              체크된 상태로 보여주려면 checked  속성 추가
-              체크된 상태로 보여주려면 checked  속성 추가체
-              체크된 상태로 보여주려면 checked  속성 추가 ㅅ
-              체크된 상태로 보여주려면 checked  속성 추가
+    num1+num2의 값은 NaN 타입은 Number
+    str1+str2의 값은 쟈스undefined 타입은 String
+    date의 값은 오늘 날짜, 타입은 object
+    nullvar의 값은 null, 타입은 object
+    obj의 값은 [object Object], 타입은 object
+    
+    obj{} 변수, 메서드 모두 obj.으로 값 할당 할 수 있다!
+    obj.name="가길동";
+    obj.age=20;
+    
+    var obj2{
+        id:"KIM",
+        pwd:"1234",
+        name:"김길동",
+        eat:function(food){
+            document.write(this.name+"이 "+food"를 먹다")
+            }
+    }
+       
+        
+    
+    [3] value 속성ㄱ
+    [3] value 속성ㅑ
+    [3] value 속
