@@ -138,12 +138,10 @@
         pwd:"1234",
         name:"김길동",
         eat:function(food){
-            document.write(this.name+"이 "+food"를 먹다")
+            document.write(this.name+"이 "+food+"를 먹다")
             }
     }
        
-        
+    obj2.eat("피자") = KIM이 피자를 먹다
     
-    [3] value 속성ㄱ
-    [3] value 속성ㅑ
-    [3] value 속
+    
