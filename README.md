@@ -178,5 +178,21 @@
       arrays[3] = true; //3번방은 없지만 크기가 불변이다.
       arrays.push(200);
       
+      선언방법2]
+      선언과 동시에 초기화
+      var initArray = new Array("가길동",20,"가산동",new Date())
+      
+      선언방법3]
+      선언과 동시에 초기화 (new 미사용,배열 리터럴 사용)
+      var initNoNew=["한소인",10,"자바전문과정",{owner='가길동',est=1970}];
+      for(var i=0;i<initNoNew.length;i++){
+        if(typeof initNoNew[i] =="object")
+            console.lot("%s,%s",initNoNew[i].owner,initNoNew[i].est)
+      }
+      
+      선언방법4]
+      
+      
       arrays[1] = new Date();
       arrays[1] = new Date();
+
