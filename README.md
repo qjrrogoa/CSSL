@@ -143,5 +143,22 @@
     }
        
     obj2.eat("피자") = KIM이 피자를 먹다
+
+
+2] Operator02
+
+조건식에서 0 or null or false만 false 
+
+나머지 모두 true
+  
+    document.write("가나다">="가다나"); // 쟈스에서 가능하지만 자바에선 불가능
+    // true
+    document.write(3 >= 9 == 0); // 3>=9 는 false, 0 은 false 즉 false == false
+    // true
     
-    
+==(동등연산자-Equality)와 ===(일치연산자 Identity)
+
+==자료형이 다르더라도 내부적 강제 형변환해서 비교
+
+===는 강제 형변환 과정없이 정확히 값하고 자료형이 일치할때만 true
+
