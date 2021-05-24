@@ -193,6 +193,5 @@
       선언방법4]
       
       
-      arrays[1] = new Date();
-      arrays[1] = new Date();
+     
 
