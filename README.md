@@ -146,6 +146,7 @@
 
 
 2] Operator02
+---
 
 조건식에서 0 or null or false만 false 
 
@@ -163,3 +164,19 @@
 ===는 강제 형변환 과정없이 정확히 값하고 자료형이 일치할때만 true
 
 <a href="javascript:history.back()">뒤로 가기</a>
+
+3] Arrays03
+---
+자바와는 다르게 배열의 크기가 불변이다.
+    
+      선언방법1
+      var arrays = new Array(3);
+      arrays[0] = 100;
+      arrays[1] = new Date();
+      arrays[2] = 3.14;
+      
+      arrays[3] = true; //3번방은 없지만 크기가 불변이다.
+      arrays.push(200);
+      
+      arrays[1] = new Date();
+      arrays[1] = new Date();
