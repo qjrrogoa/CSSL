@@ -162,3 +162,4 @@
 
 ===는 강제 형변환 과정없이 정확히 값하고 자료형이 일치할때만 true
 
+<a href="javascript:history.back()">뒤로 가기</a>
