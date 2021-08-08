@@ -64,7 +64,7 @@
     &gt;    : > (greater then)
     &lt;    : < (letter then)
     &amp;   : &
-    &quot;  : "(double quotation)
+    &quot;  : "(double quotation)"
     &apos; 혹은 &# 39 : '&apos;'는 IE에서는 적용 안됨
         
 4] Form04_1
@@ -195,6 +195,13 @@
       
       선언방법4]
       
-      
-     
+
+4] Document
+---
+
+[1] forEach 사용 법
+               HTMLCollection.prototype.forEach 변수명 = Array.prototype.forEach;
+               변수.forEach 변수명(function(e){console.log("foreach 문"+e.value)});//[o]
+
+
 
