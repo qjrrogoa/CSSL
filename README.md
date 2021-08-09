@@ -30,7 +30,7 @@
       효과를 줄때 사용한다.
   </dd>
   </dl>
-   <div>
+  </div>
 </body>
 
 
@@ -200,8 +200,14 @@
 ---
 
 [1] forEach 사용 법
+                                           
                HTMLCollection.prototype.forEach 변수명 = Array.prototype.forEach;
                변수.forEach 변수명(function(e){console.log("foreach 문"+e.value)});//[o]
+                                           
+[2] location & history
 
-
-
+              location.reload()  #새로고침
+              history.go(1)      #다음 페이지
+              history.back()     #이전 페이지
+       
+                                           
